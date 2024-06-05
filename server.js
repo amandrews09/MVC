@@ -11,7 +11,11 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({
+  helpers,
+  defaultLayout: 'main',
+  layoutsDir: path.join(__dirname, 'views/layouts')
+});
 
 const sess = {
   secret: 'Super secret secret',

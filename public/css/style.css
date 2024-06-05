@@ -1,0 +1,216 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+/* default margin and padding */
+html,
+body,
+nav,
+div {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* navigation */
+nav {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+/* logout button */
+#logout {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* header */
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* main content area */
+div {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#blog-content {
+  border: #ff0000 solid;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#post-txt {
+  font-size: 20px;
+}
+
+/* responsiveness */
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin: 5px 0;
+  }
+}
+
+/* article title */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ff8000;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* author and date */
+h4 {
+  font-size: 14px;
+  color: #ffff00;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* article text */
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+#hp-text {
+  border-top: #00ff00 solid; 
+  color: #00ff00; 
+}
+
+/* comments heading */
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #0000ff; 
+  font-family: 'Poppins', sans-serif;
+}
+
+/* individual comments */
+p.comment {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #4b0082; 
+  font-family: 'Roboto', sans-serif;
+}
+
+/* comment button */
+.btn {
+  display: inline-block;
+  background-color: #9400d3;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #9400d3; 
+}
+
+/* comment button on small screens */
+@media screen and (max-width: 600px) {
+  .btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* post list container */
+.post-list {
+  margin-top: 20px;
+}
+
+/* individual post */
+.post {
+  margin-bottom: 20px;
+}
+
+/* post title */
+.post h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #ff8000; 
+  font-family: 'Poppins', sans-serif;
+}
+
+/* post content */
+.post p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* delete and update buttons */
+.btn {
+  display: inline-block;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-danger, .btn-danger2 {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.btn-update {
+  background-color: #0000ff;
+  color: #fff;
+}
+
+/* create new post button */
+#create-btn {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #00ff00; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* small buttons */
+.btn-sm {
+  padding: 3px 6px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
