@@ -21,6 +21,14 @@ nav {
   align-items: center;
 }
 
+/* Add this rule to remove bullet points */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Ensure the items are inline */
+}
+
 nav a {
   color: #fff;
   text-decoration: none;
