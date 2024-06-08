@@ -92,4 +92,13 @@ router.get('/comment/:id', withAuth, async (req, res) => {
   }
 });
 
+//Signup route
+router.get('/signup', (req, res) => {
+  if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+  }
+  res.render('signup');
+});
+
 module.exports = router;
