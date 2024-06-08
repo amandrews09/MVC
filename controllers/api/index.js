@@ -1,10 +1,19 @@
 const router = require('express').Router();
-const commentRoutes = require('./commentRoutes');
-const postRoutes = require('./postRoutes');
-const userRoutes = require('./userRoutes');
 
-router.use('/comments', commentRoutes);
-router.use('/posts', postRoutes);
+console.log('Loading userRoutes');
+const userRoutes = require('./userRoutes');
+console.log('userRoutes loaded');
+
+console.log('Loading postRoutes');
+const postRoutes = require('./postRoutes');
+console.log('postRoutes loaded');
+
+console.log('Loading commentRoutes');
+const commentRoutes = require('./commentRoutes');
+console.log('commentRoutes loaded');
+
 router.use('/users', userRoutes);
+router.use('/posts', postRoutes);
+router.use('/comments', commentRoutes);
 
 module.exports = router;

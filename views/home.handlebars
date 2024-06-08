@@ -1,29 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-  <nav>
-    <!-- Navigation content -->
-  </nav>
-  <main>
-    <h1>Welcome to the Blog</h1>
-    {{#if posts.length}}
-      {{#each posts}}
-        <div>
-          <h2>{{this.title}}</h2>
-          <p>{{this.content}}</p>
-          <p>Posted by {{this.user.username}}</p>
-        </div>
-      {{/each}}
-    {{else}}
-      <p>No posts found.</p>
-    {{/if}}
-    <pre>{{{json posts}}}</pre> <!-- Debugging: Show the posts data -->
-  </main>
-</body>
-</html>
+{{!-- Use this file directly, no need for extend --}}
+<header>
+  <h1>Welcome to the Blog</h1>
+  {{#if logged_in}}
+    <p>You are logged in as {{username}}</p>
+    <a href="/dashboard">Go to Dashboard</a>
+    <form id="logout-form">
+      <button type="submit">Logout</button>
+    </form>
+  {{else}}
+    <a href="/login">Login</a>
+  {{/if}}
+</header>
+
+<section id="posts">
+  {{#each posts}}
+    <article>
+      <h2>{{this.title}}</h2>
+      <p>{{this.content}}</p>
+      <p>Posted by {{this.user.username}} on {{format_date this.createdAt}}</p>
+      <a href="/comment/{{this.id}}">Comments</a>
+    </article>
+  {{/each}}
+</section>
+
+<script>
+  document.getElementById('logout-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
+    const response = await fetch('/api/users/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert('Failed to log out');
+    }
+  });
+</script>
