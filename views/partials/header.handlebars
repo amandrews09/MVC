@@ -2,9 +2,9 @@
   <h1>Welcome to the Blog</h1>
   {{#if logged_in}}
     <p>You are logged in as {{username}}</p>
-    <a href="/dashboard">Go to Dashboard</a>
+    <a href="/">Go to Dashboard</a>
     <form id="logout-form" action="/api/users/logout" method="POST">
-      <button type="submit">Logout</button>
+      {{!-- <button type="submit">Logout</button> --}}
     </form>
   {{else}}
     <a href="/login">Login</a>

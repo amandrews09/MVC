@@ -52,7 +52,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     res.render('dashboard', {
       ...user,
-      logged_in: req.session.logged_in,
+      logged_in: true,
     });
   } catch (err) {
     console.error(err);
