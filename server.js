@@ -53,7 +53,14 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Temporary route for debugging
+app.get('/css/styles.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/css/styles.css'));
+});
 
 app.use(routes);
 
