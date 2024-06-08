@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const Handlebars = require('handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sequelize = require('./config/connection');
@@ -34,6 +35,11 @@ const sess = {
 };
 
 app.use(session(sess));
+
+// Register the format_date helper
+Handlebars.registerHelper('format_date', (date) => {
+  return new Date(date).toLocaleDateString();
+});
 
 // Logging middleware
 app.use((req, res, next) => {
