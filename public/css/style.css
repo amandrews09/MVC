@@ -311,7 +311,7 @@ a {
   background-color: #0056b3;
 }
 
-.signup-container, .login-container {
+.signup-container, .login-container, .comment-container {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -320,7 +320,7 @@ a {
   max-width: 400px;
 }
 
-.signup-form, .login-form {
+.signup-form, .login-form, .comment-form {
   display: flex;
   flex-direction: column;
 }
@@ -360,4 +360,21 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+.comment-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.comments-list {
+  margin-top: 20px;
+}
+
+.comment {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fafafa;
 }

@@ -7,32 +7,37 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <header>
+  <header class="comment-header">
     <h1>{{post.title}}</h1>
     <p>{{post.content}}</p>
     <p>Posted by {{post.user.username}} on {{format_date post.createdAt}}</p>
   </header>
 
   <main>
-    <section>
+    <section class="comment-container">
       <h2>Comments</h2>
       {{#if post.comments.length}}
-        {{#each post.comments}}
-          <div>
-            <p>{{this.comment_text}}</p>
-            <p>Commented by {{this.user.username}} on {{format_date this.createdAt}}</p>
-          </div>
-        {{/each}}
+        <div class="comments-list">
+          {{#each post.comments}}
+            <div class="comment">
+              <p>{{this.comment_text}}</p>
+              <p>Commented by {{this.user.username}} on {{format_date this.createdAt}}</p>
+            </div>
+          {{/each}}
+        </div>
       {{else}}
         <p>No comments yet.</p>
       {{/if}}
     </section>
 
     {{#if logged_in}}
-      <section>
+      <section class="comment-container">
         <h3>Add a Comment</h3>
-        <form id="comment-form">
-          <textarea id="comment_text" name="comment_text" rows="4" required></textarea>
+        <form id="comment-form" class="comment-form">
+          <div class="form-group">
+            <label for="comment_text">Comment:</label>
+            <textarea id="comment_text" name="comment_text" rows="4" required></textarea>
+          </div>
           <button type="submit">Submit</button>
         </form>
       </section>
