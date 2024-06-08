@@ -222,3 +222,91 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.post {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post h2 {
+  margin-top: 0;
+}
+
+.post h3 {
+  margin-top: 0;
+}
+
+.post p {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.post small {
+  display: block;
+  margin-top: 10px;
+  color: #888;
+}
+
+.post button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.post button.delete-btn {
+  background-color: #dc3545;
+}
+
+.create-post-container {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#create-post-form button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#create-post-form button:hover {
+  background-color: #0056b3;
+}

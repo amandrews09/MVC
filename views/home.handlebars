@@ -1,9 +1,10 @@
 {{!-- Use the main layout --}}
 {{> header}}
 
-<section id="posts">
+
+<section id="posts" class="post-container">
   {{#each posts}}
-    <article>
+    <article class="post">
       <h2>{{this.title}}</h2>
       <p>{{this.content}}</p>
       <p>Posted by {{this.user.username}} on {{format_date this.createdAt}}</p>
