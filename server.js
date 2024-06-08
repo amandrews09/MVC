@@ -14,7 +14,8 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ 
   helpers,
   defaultLayout: 'main',
-  layoutsDir: path.join(__dirname, 'views/layouts')
+  layoutsDir: path.join(__dirname, 'views/layouts'),
+  partialsDir: path.join(__dirname, 'views/partials'),
 });
 
 const sess = {
@@ -22,17 +23,24 @@ const sess = {
   cookie: {
     maxAge: 24 * 60 * 60 * 1000, // 1 day
     httpOnly: true,
-    secure: true, // should be true if using HTTPS
+    secure: process.env.NODE_ENV === 'production', // should be true if using HTTPS
     sameSite: 'strict',
   },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false, // usually false to avoid saving empty sessions
   store: new SequelizeStore({
     db: sequelize,
   }),
 };
 
 app.use(session(sess));
+
+// Logging middleware
+app.use((req, res, next) => {
+  console.log(`Session ID: ${req.sessionID}`);
+  console.log(`Session Data: ${JSON.stringify(req.session)}`);
+  next();
+});
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

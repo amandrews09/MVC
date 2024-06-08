@@ -1,16 +1,5 @@
-{{!-- Use this file directly, no need for extend --}}
-<header>
-  <h1>Welcome to the Blog</h1>
-  {{#if logged_in}}
-    <p>You are logged in as {{username}}</p>
-    <a href="/dashboard">Go to Dashboard</a>
-    <form id="logout-form">
-      <button type="submit">Logout</button>
-    </form>
-  {{else}}
-    <a href="/login">Login</a>
-  {{/if}}
-</header>
+{{!-- Use the main layout --}}
+{{> header}}
 
 <section id="posts">
   {{#each posts}}

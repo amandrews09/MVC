@@ -1,16 +1,12 @@
 const withAuth = (req, res, next) => {
-    // If the user is not logged in, redirect the user to the login page
-    // This is directly from the `/gallery/:id` and `/painting/:id` routes
-    if (!req.session.loggedIn) {
-      console.log('User not logged in, redirecting to login page.');
-      res.redirect('/login');
-    } else {
-      console.log('User is logged in:', req.session);
-      // If the user is logged in, execute the route function that will allow them to view the gallery
-      // We call next() if the user is authenticated
-      next();
-    }
-  };
-  
-  module.exports = withAuth;
-  
+  console.log('withAuth middleware:', req.session); // Add logging to check session data
+  if (!req.session.logged_in) {
+    console.log('User not logged in, redirecting to login page.');
+    res.redirect('/login');
+  } else {
+    console.log('User is logged in:', req.session);
+    next();
+  }
+};
+
+module.exports = withAuth;

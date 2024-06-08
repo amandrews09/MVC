@@ -38,17 +38,24 @@ router.get('/login', (req, res) => {
 // Dashboard route
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
+    console.log('Dashboard route:', req.session); // Add logging to check session data
     const userData = await User.findByPk(req.session.user_id, {
       include: [{ model: Post }],
     });
+
+    if (!userData) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
 
     const user = userData.get({ plain: true });
 
     res.render('dashboard', {
       ...user,
-      logged_in: true,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });

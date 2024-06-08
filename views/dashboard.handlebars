@@ -1,38 +1,34 @@
-{{!-- Extends the main layout --}}
-{{#extend 'main'}}
-  {{!-- Sets the title for this view --}}
-  {{#content 'title'}}Dashboard{{/content}}
+{{!-- Use the main layout --}}
+{{> header}}
 
-  {{!-- Main content --}}
-  <h1>Your Dashboard</h1>
-  
-  <h2>Your Posts</h2>
-  {{#if posts.length}}
-    {{#each posts}}
-      <div>
-        <h3>{{this.title}}</h3>
-        <p>{{this.content}}</p>
-        <p>Posted on {{format_date this.createdAt}}</p>
-        <button class="edit-btn" data-id="{{this.id}}">Edit</button>
-        <button class="delete-btn" data-id="{{this.id}}">Delete</button>
-      </div>
-    {{/each}}
-  {{else}}
-    <p>You have no posts yet.</p>
-  {{/if}}
+<h1>Your Dashboard</h1>
 
-  <h2>Create a New Post</h2>
-  <form id="new-post-form">
+<h2>Your Posts</h2>
+{{#if posts.length}}
+  {{#each posts}}
     <div>
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title" required>
+      <h3>{{this.title}}</h3>
+      <p>{{this.content}}</p>
+      <p>Posted on {{format_date this.createdAt}}</p>
+      <button class="edit-btn" data-id="{{this.id}}">Edit</button>
+      <button class="delete-btn" data-id="{{this.id}}">Delete</button>
     </div>
-    <div>
-      <label for="content">Content:</label>
-      <textarea id="content" name="content" rows="4" required></textarea>
-    </div>
-    <button type="submit">Create Post</button>
-  </form>
+  {{/each}}
+{{else}}
+  <p>You have no posts yet.</p>
+{{/if}}
 
-  <script src="/js/dashboard.js"></script>
-{{/extend}}
+<h2>Create a New Post</h2>
+<form id="new-post-form">
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+  </div>
+  <div>
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" rows="4" required></textarea>
+  </div>
+  <button type="submit">Create Post</button>
+</form>
+
+<script src="/js/dashboard.js"></script>
