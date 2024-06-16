@@ -29,6 +29,14 @@ nav ul {
   display: flex; /* Ensure the items are inline */
 }
 
+nav ul li {
+  margin-right: 20px; /* Adjust the value to increase or decrease the spacing */
+}
+
+nav ul li:last-child {
+  margin-right: 0; /* Remove margin from the last list item */
+}
+
 nav a {
   color: #fff;
   text-decoration: none;
