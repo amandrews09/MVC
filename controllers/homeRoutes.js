@@ -63,34 +63,29 @@ router.get('/dashboard', withAuth, async (req, res) => {
 // Post route to fetch a single post along with its comments
 router.get('/post/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-        {
-          model: Comment,
-          include: [User],
-        },
-      ],
-    });
+      const postData = await Post.findByPk(req.params.id, {
+          include: [
+              {
+                  model: User,
+                  attributes: ['username'],
+              },
+              {
+                  model: Comment,
+                  include: [User],
+              },
+          ],
+      });
 
-    if (!postData) {
-      res.status(404).json({ message: 'No post found with this id!' });
-      return;
-    }
-
-    const post = postData.get({ plain: true });
-
-    res.render('post', {
-      ...post,
-      logged_in: req.session.logged_in,
-    });
+      const post = postData.get({ plain: true });
+      res.render('post', {
+          ...post,
+          logged_in: req.session.logged_in,
+      });
   } catch (err) {
-    res.status(500).json(err);
+      res.status(500).json(err);
   }
 });
+
 
 // Comment route
 router.get('/comment/:id', withAuth, async (req, res) => {
