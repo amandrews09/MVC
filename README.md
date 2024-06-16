@@ -33,10 +33,10 @@ Right-click on the "server.js" file and select "Open in Integrated Terminal". Ty
 ## Credits
 The Winged Coders and Chatgpt
 ## Screenshots
-![Homepage](public\assets\images\Screenshot 2024-06-08 154504.png)
-![Login](public\assets\images\Screenshot 2024-06-08 154519.png)
-![SignUp](public\assets\images\Screenshot 2024-06-08 154536.png)
-![Dashboard](public\assets\images\Screenshot 2024-06-08 154628.png)
-![Comments](public\assets\images\Screenshot 2024-06-08 154721.png)
+![Homepage](public/assets/images/Screenshot%202024-06-08%20154504.png)
+![Login](public/assets/images/Screenshot%202024-06-08%20154519.png)
+![SignUp](public/assets/images/Screenshot%202024-06-08%20154536.png)
+![Dashboard](public/assets/images/Screenshot%202024-06-08%20154628.png)
+![Comments](public/assets/images/Screenshot%202024-06-08%20154721.png)
 ## URL for deployed application
-
+https://dashboard.heroku.com/apps/baby-llama/deploy/github
